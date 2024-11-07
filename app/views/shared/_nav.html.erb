@@ -1,5 +1,16 @@
 <nav class="container mx-auto p-4 flex justify-between items-center">
-    <a href="<%= root_path %>" class="text-blue-500 text-lg font-semibold">
-        Home
+  <a href="<%= root_path %>" class="text-blue-500 text-lg font-semibold">
+    <%= t('views.shared.nav.home') %>
+  </a>
+
+  <% if user_signed_in? %>
+    <a href="<%= edit_user_registration_path %>" class="text-blue-500 text-lg font-semibold">
+      <%= t('views.shared.nav.edit') %>
     </a>
+    <%= link_to t('views.shared.nav.logout'), destroy_user_session_path, method: :delete, data: { turbo_method: :delete } %>
+  <% else %>
+    <a href="<%= new_user_session_path %>" class="text-blue-500 text-lg font-semibold">
+      <%= t('views.shared.nav.login') %>
+    </a>
+  <% end %>
 </nav>

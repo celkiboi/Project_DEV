@@ -1,0 +1,40 @@
+hr:
+  devise:
+    sessions:
+      new:
+        sign_in: "Prijavite se"
+        email: "Email"
+        password: "Lozinka"
+        remember_me: "Zapamti me"
+        submit: "Prijava"
+        failed: "Prijava nije uspjela. Provjerite svoje podatke."
+    registrations:
+      new:
+        sign_up: "Registrirajte se"
+        email: "Email"
+        password: "Lozinka"
+        password_confirmation: "Potvrda lozinke"
+        name: "Ime"
+        lastname: "Prezime"
+        submit: "Registriraj se"
+    passwords:
+      new:
+        send_instructions: "Pošaljite upute za vraćanje lozinke"
+        email: "Email"
+        submit: "Pošaljite upute"
+    confirmations:
+      new:
+        send_instructions: "Pošaljite potvrdu"
+        email: "Email"
+        submit: "Pošaljite potvrdu"
+    unlocks:
+      new:
+        send_instructions: "Pošaljite upute za otključavanje"
+        email: "Email"
+        submit: "Pošaljite upute"
+  activerecord:
+    attributes:
+      user:
+        name: "Ime"
+        lastname: "Prezime"
+        email: "Email"

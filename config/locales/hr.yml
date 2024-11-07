@@ -1,0 +1,31 @@
+hr:
+  devise:
+    registrations:
+      new:
+        sign_up: "Registrirajte se"
+    sessions:
+      new:
+        sign_in: "Prijavite se"
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            name:
+              blank: "Ime je obavezno"
+            lastname:
+              blank: "Prezime je obavezno"
+      messages:
+        blank: "Ne smije biti prazno"
+  views:
+    shared:
+      nav:
+        home: "Naslovnica"
+        edit: "Uredi profil"
+        logout: "Odjava"
+        login: "Prijava"
+    users:
+      show:
+        name: "Ime"
+        lastname: "Prezime"
+        email: "Email"

@@ -1,6 +1,8 @@
 source "https://rubygems.org"
 
 gem "tailwindcss-rails"
+gem 'devise'
+gem 'devise-i18n'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.2.1", ">= 7.2.1.1"
