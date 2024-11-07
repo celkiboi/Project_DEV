@@ -1,23 +1,20 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= content_for(:title) || "Project Dev" %></title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>Project DEV</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
 
-    <%= yield :head %>
-
-    <link rel="manifest" href="/manifest.json">
-    <link rel="icon" href="/icon.png" type="image/png">
-    <link rel="icon" href="/icon.svg" type="image/svg+xml">
-    <link rel="apple-touch-icon" href="/icon.png">
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
+  <body class="bg-gray-100 font-sans leading-normal tracking-normal">
+    <header class="bg-white shadow-md">
+      <%= render "shared/nav" %>
+    </header>
+
     <%= yield %>
   </body>
 </html>
