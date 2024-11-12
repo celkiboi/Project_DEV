@@ -16,7 +16,10 @@ hr:
         password_confirmation: "Potvrda lozinke"
         name: "Ime"
         lastname: "Prezime"
+        upload_picture: "Učitaj profilnu sliku"
         submit: "Registriraj se"
+      edit:
+        profile_picture: "Učitaj profilnu sliku"
     passwords:
       new:
         send_instructions: "Pošaljite upute za vraćanje lozinke"

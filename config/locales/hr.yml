@@ -26,6 +26,7 @@ hr:
         login: "Prijava"
     users:
       show:
+        profile: "Profil"
         name: "Ime"
         lastname: "Prezime"
         email: "Email"
