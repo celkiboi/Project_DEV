@@ -27,6 +27,11 @@ hr:
     users:
       show:
         profile: "Profil"
+        follow: "Prati korisnika"
+        unfollow: "Prestani pratiti korisnika"
+        followers: "Pratitelji"
+        following: "Prati"
+        show-followers: "Prikaži pratitelje i praćene korisnike"
         name: "Ime"
         lastname: "Prezime"
         email: "Email"
