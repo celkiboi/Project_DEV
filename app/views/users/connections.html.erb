@@ -1,8 +1,8 @@
-<h1><%= @user.name %>'s Network</h1>
+<h1><%= @user.name %></h1>
 
 <div style="display: flex; justify-content: space-between;">
   <div style="width: 45%;">
-    <h2>Followers</h2>
+    <h2><%= t('views.users.connections.followers') %></h2>
     <% if @followers.any? %>
       <ul>
         <% @followers.each do |follower| %>
@@ -10,12 +10,12 @@
         <% end %>
       </ul>
     <% else %>
-      <p>This user has no followers.</p>
+      <p><%= t('views.users.connections.no-followers') %></p>
     <% end %>
   </div>
 
   <div style="width: 45%;">
-    <h2>Following</h2>
+    <h2><%= t('views.users.connections.following') %></h2>
     <% if @following.any? %>
       <ul>
         <% @following.each do |followed| %>
@@ -23,7 +23,7 @@
         <% end %>
       </ul>
     <% else %>
-      <p>This user is not following anyone.</p>
+      <p><%= t('views.users.connections.not-following') %></p>
     <% end %>
   </div>
 </div>

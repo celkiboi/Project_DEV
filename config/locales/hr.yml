@@ -25,6 +25,11 @@ hr:
         logout: "Odjava"
         login: "Prijava"
     users:
+      connections:
+        followers: "Pratitelji"
+        following: "Prati"
+        no-followers: "Ovaj korisnik nema pratitelja"
+        not-following: "Ovaj korisnik ne prati nikoga"
       show:
         profile: "Profil"
         follow: "Prati korisnika"
