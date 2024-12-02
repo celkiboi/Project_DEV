@@ -40,3 +40,4 @@ hr:
         name: "Ime"
         lastname: "Prezime"
         email: "Email"
+        cannot_follow_yourself: "Ne možete pratiti samoga sebe!"
