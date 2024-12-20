@@ -35,10 +35,28 @@
     <%= f.label 'profilna slika' %>
     <%= f.file_field :profile_picture %>
   </div>
-  <%= f.submit %>
+
+  <p><%= t('devise.registrations.edit.nested-email') %>:</p>
+  <div data-controller="nested-form">
+    <div data-nested-form-target="container">
+      <%= f.fields_for :contact_emails do |contact_email_form| %>
+        <%= render 'contact_email_fields', f: contact_email_form %>
+      <% end %>
+    </div>
+
+    <template data-nested-form-target="template">
+      <%= f.fields_for :contact_emails, ContactEmail.new, child_index: "NEW_RECORD" do |contact_email_form| 
+        render('contact_email_fields', f: contact_email_form)
+      end %>
+    </template>
+
+    <button type="button" data-action="nested-form#add">
+      <%= t('devise.registrations.edit.add') %>
+    </button>
+  </div>
 
   <div class="actions">
-    <%= f.submit t('.update') %>
+    <%= f.submit t('devise.registrations.edit.update-profile') %>
   </div>
 <% end %>
 

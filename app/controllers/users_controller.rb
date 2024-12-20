@@ -1,6 +1,10 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
 
+  def user_params
+    params.require(:user).permit(:email, :password, :password_confirmation, :current_password, contact_emails_attributes: [:id, :email, :_destroy])
+  end
+
   def show
     @user = User.find(params[:id])
     @is_current_user = @user == current_user

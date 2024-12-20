@@ -3,6 +3,11 @@ hr:
     registrations:
       new:
         sign_up: "Registrirajte se"
+      edit:
+        nested-email: "Unesite kontakt e mail adrese"
+        remove: "Ukloni"
+        add: "Dodaj kontakt email"
+        update-profile: "Ažuriraj profil"
     sessions:
       new:
         sign_in: "Prijavite se"
@@ -41,3 +46,5 @@ hr:
         lastname: "Prezime"
         email: "Email"
         cannot_follow_yourself: "Ne možete pratiti samoga sebe!"
+        no_contact_emails: "Korisnik nema e-mail adrese na koje ga možete kontaktirati."
+        contact_emails: "E-mail adrese na koje možete kontaktirati korisnika"

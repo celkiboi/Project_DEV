@@ -19,3 +19,14 @@
 <p><strong><%= t('views.users.show.name') %>:</strong> <%= @user.name %></p>
 <p><strong><%= t('views.users.show.lastname') %>:</strong> <%= @user.lastname %></p>
 <p><strong><%= t('views.users.show.email') %>:</strong> <%= @user.email %></p>
+
+<% if @user.contact_emails.any? %>
+  <h3><%= t('views.users.show.contact_emails') %>:</h3>
+  <ul>
+    <% @user.contact_emails.each do |contact_email| %>
+      <li><%= contact_email.email %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p><%= t('views.users.show.no_contact_emails') %></p>
+<% end %>
