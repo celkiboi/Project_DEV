@@ -8,6 +8,7 @@
       <%= t('views.shared.nav.edit') %>
     </a>
     <%= link_to t('views.shared.nav.logout'), destroy_user_session_path, method: :delete, data: { turbo_method: :delete } %>
+    <%= link_to t('views.shared.nav.new-post'), post_new_path%>
   <% else %>
     <a href="<%= new_user_session_path %>" class="text-blue-500 text-lg font-semibold">
       <%= t('views.shared.nav.login') %>

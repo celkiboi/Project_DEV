@@ -29,6 +29,7 @@ hr:
         edit: "Uredi profil"
         logout: "Odjava"
         login: "Prijava"
+        new-post: "Nova objava"
     users:
       connections:
         followers: "Pratitelji"
@@ -48,3 +49,32 @@ hr:
         cannot_follow_yourself: "Ne možete pratiti samoga sebe!"
         no_contact_emails: "Korisnik nema e-mail adrese na koje ga možete kontaktirati."
         contact_emails: "E-mail adrese na koje možete kontaktirati korisnika"
+    posts:
+      user_posts:
+        suffix: "-ove"
+        posts: "objave"
+        published: "Objavljeno"
+        unpublished: "Neobjavljeno"
+        no-posts: "Korisnik nema objava"
+      new:
+        title: "Nova objava"
+      edit:
+        title: "Uredi objavu"
+      form:
+        title: "Naslov"
+        short_description: "Kratki opis"
+        content: "Sadržaj"
+        publish_date: "Datum objave"
+        public: "Javno"
+        published: "Objavljeno"
+        image: "Slika"
+      show:
+        title: "Naslov"
+        short_description: "Kratki opis"
+        content: "Sadržaj"
+        publish_date: "Datum objave"
+        public: "Javno"
+        published: "Objavljeno"
+        image: "Slika"
+        back_to_posts: "Nazad na objave"
+        publish: "Objavi"

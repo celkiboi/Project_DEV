@@ -1,0 +1,21 @@
+<h1><%= @post.title %></h1>
+
+<p><strong><%= t('views.posts.show.short_description') %>:</strong> <%= @post.short_description %></p>
+<p><strong><%= t('views.posts.show.content') %>:</strong> <%= @post.content %></p>
+<p><strong><%= t('views.posts.show.publish_date') %>:</strong> <%= @post.publish_date.strftime('%d.%m.%Y') %></p>
+
+<% if @post.image.present? %>
+  <div>
+    <%= image_tag @post.image.url %>
+  </div>
+<% end %>
+
+<%= link_to t('views.posts.show.back_to_posts'), user_posts_path(current_user) %>
+
+<% if current_user == @post.user %>
+  <% unless @post.published? %>
+    <%= form_for @post, url: publish_post_path(@post), method: :put do |f| %>
+        <%= f.submit t('views.posts.show.publish'), class: 'btn btn-primary' %>
+    <% end %>
+  <% end %>
+<% end %>

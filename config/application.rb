@@ -25,5 +25,6 @@ module ProjectDev
     # config.eager_load_paths << Rails.root.join("extras")
     config.i18n.default_locale = :hr
     config.time_zone = 'Zagreb'
+    config.active_support.deprecation = :silence
   end
 end

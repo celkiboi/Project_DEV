@@ -5,6 +5,7 @@ gem 'devise'
 gem 'devise-i18n'
 gem 'carrierwave', '~> 3.0'
 gem 'mini_magick'
+gem 'active_storage_validations'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.2.1", ">= 7.2.1.1"

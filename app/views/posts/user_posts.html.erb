@@ -1,0 +1,18 @@
+<h1><%= @user.name %><%= t('views.posts.user_posts.suffix') %> <%= t('views.posts.user_posts.posts') %></h1>
+
+<% if @posts.any? %>
+  <ul>
+    <% @posts.each do |post| %>
+      <li>
+        <h2><%= link_to post.title, show_post_path(post) %></h2>
+        <p><%= post.short_description %></p>
+        <p><%= post.publish_date.strftime('%d.%m.%Y') %></p>
+        <% if current_user == @user %>
+          <p><em><%= post.published? ? t('views.posts.user_posts.published') : t('views.posts.user_posts.unpublished') %></em></p>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p><%= t('views.posts.user_posts.no-posts') %></p>
+<% end %>

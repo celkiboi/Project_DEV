@@ -1,0 +1,52 @@
+<%= form_with(model: @post, local: true, html: { multipart: true }) do |form| %>
+  <% if @post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+        <% @post.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title, t('views.posts.form.title') %>
+    <%= form.text_field :title, required: true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :short_description, t('views.posts.form.short_description') %>
+    <%= form.text_field :short_description, required: true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :content, t('views.posts.form.content') %>
+    <%= form.text_area :content, rows: 10, required: true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :publish_date, t('views.posts.form.publish_date') %>
+    <%= form.date_field :publish_date, value: Date.today %>
+  </div>
+
+  <div class="field">
+    <%= form.label :public, t('views.posts.form.public') %>
+    <%= form.check_box :public %>
+  </div>
+
+  <div class="field">
+    <%= form.label :published, t('views.posts.form.published') %>
+    <%= form.check_box :published %>
+  </div>
+
+  <div class="field">
+    <%= form.label :image, t('views.posts.form.image') %>
+    <%= form.file_field :image %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
