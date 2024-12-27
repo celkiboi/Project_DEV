@@ -4,13 +4,13 @@ class PostsController < ApplicationController
 
   def user_posts
     if current_user == @user
-      @posts = @user.posts.order(publish_date: :desc)
+      @posts = @user.posts.order(publish_date: :desc).page(params[:page]).per(5)
     elsif current_user
-      @posts = @user.posts.published.order(publish_date: :desc)
+      @posts = @user.posts.published.order(publish_date: :desc).page(params[:page]).per(5)
     else
-      @posts = @user.posts.public_posts.order(publish_date: :desc)
+      @posts = @user.posts.public_posts.order(publish_date: :desc).page(params[:page]).per(5)
     end
-  end
+  end  
 
   def new
     @post = current_user.posts.build

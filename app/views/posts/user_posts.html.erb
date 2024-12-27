@@ -13,6 +13,8 @@
       </li>
     <% end %>
   </ul>
+
+  <%= paginate @posts %>
 <% else %>
   <p><%= t('views.posts.user_posts.no-posts') %></p>
 <% end %>
