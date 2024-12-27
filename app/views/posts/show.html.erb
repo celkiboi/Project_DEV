@@ -1,7 +1,7 @@
 <h1><%= @post.title %></h1>
 
 <p><strong><%= t('views.posts.show.short_description') %>:</strong> <%= @post.short_description %></p>
-<p><strong><%= t('views.posts.show.content') %>:</strong> <%= @post.content %></p>
+<p><strong><%= t('views.posts.show.content') %>:</strong> <%= raw @post.content %></p>
 <p><strong><%= t('views.posts.show.publish_date') %>:</strong> <%= @post.publish_date.strftime('%d.%m.%Y') %></p>
 
 <% if @post.image.present? %>

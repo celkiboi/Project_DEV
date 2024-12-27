@@ -23,7 +23,7 @@
 
   <div class="field">
     <%= form.label :content, t('views.posts.form.content') %>
-    <%= form.text_area :content, rows: 10, required: true %>
+    <%= form.text_area :content, rows: 10, data: { controller: "tinymce" } %>
   </div>
 
   <div class="field">
