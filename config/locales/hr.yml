@@ -23,6 +23,12 @@ hr:
       messages:
         blank: "Ne smije biti prazno"
   views:
+    pagination:
+      first: "Prva"
+      last: "Zadnja"
+      previous: "Prethodna"
+      next: "Sljedeća"
+      truncate: "..."
     shared:
       nav:
         home: "Naslovnica"
