@@ -6,6 +6,7 @@ class User < ApplicationRecord
   
   has_many :posts, dependent: :destroy
   has_many :contact_emails, dependent: :destroy
+  has_many :comments, dependent: :destroy
   accepts_nested_attributes_for :contact_emails, allow_destroy: true
   
   validates :name, presence: true

@@ -1,3 +1,5 @@
+<%= javascript_include_tag "comments", "data-turbo-track": "reload" %>
+
 <h1><%= @post.title %></h1>
 
 <p><strong><%= t('views.posts.show.short_description') %>:</strong> <%= @post.short_description %></p>
@@ -19,3 +21,17 @@
     <% end %>
   <% end %>
 <% end %>
+
+<h2><%= t('views.posts.show.comments') %></h2>
+<div id="comments">
+  <%= render partial: 'comments/comment_list', locals: { comments: @post.comments } %>
+</div>
+
+<div id="comment-form">
+  <% if user_signed_in? %>
+    <textarea id="new-comment-content" placeholder="<%= t('views.posts.show.add_comment') %>"></textarea>
+    <button id="submit-comment" data-post-id="<%= @post.id %>"><%= t('views.posts.show.comment') %></button>
+  <% else %>
+    <p>You need to <%= link_to 'sign in', new_user_session_path %> to comment.</p>
+  <% end %>
+</div>

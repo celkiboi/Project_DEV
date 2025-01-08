@@ -1,0 +1,14 @@
+<% comments.each do |comment| %>
+  <div class="comment" id="comment-<%= comment.id %>">
+    <p><strong><%= comment.user.name %>:</strong> <%= comment.content %></p>
+    <% if comment.user == current_user %>
+      <button 
+        class="delete-comment" 
+        data-comment-id="<%= comment.id %>" 
+        data-post-id="<%= comment.post_id %>"
+      >
+        <%= t('views.comments.delete') %>
+      </button>
+    <% end %>
+  </div>
+<% end %>

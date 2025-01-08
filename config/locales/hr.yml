@@ -84,3 +84,8 @@ hr:
         image: "Slika"
         back_to_posts: "Nazad na objave"
         publish: "Objavi"
+        comment: "Komentiraj"
+        comments: "Komentari"
+        add_comment: "Dodaj komentar..."
+    comments:
+      delete: "Obriši"

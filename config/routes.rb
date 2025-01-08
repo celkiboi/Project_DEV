@@ -30,6 +30,7 @@ Rails.application.routes.draw do
     member do
       put :publish
     end
+    resources :comments, only: [:create, :destroy]
   end
   
 end
