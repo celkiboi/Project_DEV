@@ -2,10 +2,8 @@ import { Controller } from "@hotwired/stimulus";
 
 export default class extends Controller {
   connect() {
-    const apiKey = document.querySelector('meta[name="tinymce-api-key"]').content;
     const script = document.createElement("script");
-    script.src = `https://cdn.tiny.cloud/1/${apiKey}/tinymce/6/tinymce.min.js`;
-    script.referrerPolicy = "origin";
+    script.src = "/assets/tinymce/tinymce.min.js";
     script.onload = () => this.initializeEditor();
     document.head.appendChild(script);
   }
