@@ -36,6 +36,7 @@ hr:
         logout: "Odjava"
         login: "Prijava"
         new-post: "Nova objava"
+        profile: "Profil"
     users:
       connections:
         followers: "Pratitelji"
@@ -74,6 +75,7 @@ hr:
         public: "Javno"
         published: "Objavljeno"
         image: "Slika"
+        create: "Napravi objavu"
       show:
         title: "Naslov"
         short_description: "Kratki opis"

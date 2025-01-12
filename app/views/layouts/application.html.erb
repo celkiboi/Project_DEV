@@ -5,16 +5,16 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
-
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
 
-  <body class="bg-gray-100 font-sans leading-normal tracking-normal">
-    <header class="bg-white shadow-md">
+  <body class="font-sans leading-normal tracking-normal bg-white text-gray-900 dark:bg-gray-900 dark:text-white transition-colors duration-300">
+    <header class="shadow-md">
       <%= render "shared/nav" %>
     </header>
 
-    <%= yield %>
+    <div class="p-4 sm:p-6 lg:p-8">
+      <%= yield %>
+    </div>
   </body>
 </html>

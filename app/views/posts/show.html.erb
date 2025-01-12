@@ -1,37 +1,50 @@
 <%= javascript_include_tag "comments", "data-turbo-track": "reload" %>
 
-<h1><%= @post.title %></h1>
+<h1 class="text-3xl font-bold text-gray-900 dark:text-white mb-4"><%= @post.title %></h1>
 
-<p><strong><%= t('views.posts.show.short_description') %>:</strong> <%= @post.short_description %></p>
-<p><strong><%= t('views.posts.show.content') %>:</strong> <%= raw @post.content %></p>
-<p><strong><%= t('views.posts.show.publish_date') %>:</strong> <%= @post.publish_date.strftime('%d.%m.%Y') %></p>
+<p class="text-gray-700 dark:text-gray-300 mb-4">
+  <strong><%= t('views.posts.show.short_description') %>:</strong> <%= @post.short_description %>
+</p>
+<p class="text-gray-700 dark:text-gray-300 mb-4">
+  <strong><%= t('views.posts.show.content') %>:</strong> <%= raw @post.content %>
+</p>
+<p class="text-gray-700 dark:text-gray-300 mb-4">
+  <strong><%= t('views.posts.show.publish_date') %>:</strong> <%= @post.publish_date.strftime('%d.%m.%Y') %>
+</p>
 
 <% if @post.image.present? %>
-  <div>
-    <%= image_tag @post.image.url %>
+  <div class="mb-6">
+    <%= image_tag @post.image.url, class: "w-64 h-auto rounded-md shadow-lg mx-auto" %> <!-- Adjusted width to 16rem -->
   </div>
 <% end %>
 
-<%= link_to t('views.posts.show.back_to_posts'), user_posts_path(current_user) %>
+<%= link_to t('views.posts.show.back_to_posts'), user_posts_path(current_user), class: "text-blue-500 hover:text-blue-700 dark:text-blue-300 dark:hover:text-blue-500 mb-6 inline-block" %>
 
 <% if current_user == @post.user %>
   <% unless @post.published? %>
     <%= form_for @post, url: publish_post_path(@post), method: :put do |f| %>
-        <%= f.submit t('views.posts.show.publish'), class: 'btn btn-primary' %>
+      <%= f.submit t('views.posts.show.publish'), class: 'bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-blue-600 dark:hover:bg-blue-800' %>
     <% end %>
   <% end %>
 <% end %>
 
-<h2><%= t('views.posts.show.comments') %></h2>
-<div id="comments">
+<h2 class="text-2xl font-semibold text-gray-900 dark:text-white mt-8 mb-4"><%= t('views.posts.show.comments') %></h2>
+
+<div id="comments" class="mb-6">
   <%= render partial: 'comments/comment_list', locals: { comments: @post.comments } %>
 </div>
 
-<div id="comment-form">
+<div id="comment-form" class="bg-gray-100 dark:bg-gray-700 p-4 rounded-lg shadow-md">
   <% if user_signed_in? %>
-    <textarea id="new-comment-content" placeholder="<%= t('views.posts.show.add_comment') %>"></textarea>
-    <button id="submit-comment" data-post-id="<%= @post.id %>"><%= t('views.posts.show.comment') %></button>
+    <textarea id="new-comment-content" placeholder="<%= t('views.posts.show.add_comment') %>" class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600 mb-4"></textarea>
+    <button id="submit-comment" data-post-id="<%= @post.id %>" class="w-64 p-3 bg-blue-500 hover:bg-blue-700 text-white font-semibold rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-blue-600 dark:hover:bg-blue-700">
+      <%= t('views.posts.show.comment') %>
+    </button>
   <% else %>
-    <p>You need to <%= link_to 'sign in', new_user_session_path %> to comment.</p>
+    <p class="text-gray-700 dark:text-gray-300 mt-4">
+      <%= t('views.posts.show.sign_in_prompt') %> 
+      <%= link_to t('views.posts.show.sign_in'), new_user_session_path, class: "text-blue-500 hover:text-blue-700 dark:text-blue-300 dark:hover:text-blue-500" %> 
+      <%= t('views.posts.show.to_comment') %>
+    </p>
   <% end %>
 </div>

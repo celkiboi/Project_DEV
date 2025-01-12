@@ -1,9 +1,9 @@
 <%= form_with(model: @post, local: true, html: { multipart: true }) do |form| %>
   <% if @post.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+    <div id="error_explanation" class="bg-red-100 text-red-800 p-4 rounded-md mb-6">
+      <h2 class="font-semibold"><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
 
-      <ul>
+      <ul class="list-inside list-disc mt-2">
         <% @post.errors.full_messages.each do |message| %>
           <li><%= message %></li>
         <% end %>
@@ -11,42 +11,42 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :title, t('views.posts.form.title') %>
-    <%= form.text_field :title, required: true %>
+  <div class="mb-4">
+    <%= form.label :title, t('views.posts.form.title'), class: "block text-gray-700 dark:text-gray-300 font-medium" %>
+    <%= form.text_field :title, required: true, class: "mt-1 p-2 border border-gray-300 rounded-md w-full focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white" %>
   </div>
 
-  <div class="field">
-    <%= form.label :short_description, t('views.posts.form.short_description') %>
-    <%= form.text_field :short_description, required: true %>
+  <div class="mb-4">
+    <%= form.label :short_description, t('views.posts.form.short_description'), class: "block text-gray-700 dark:text-gray-300 font-medium" %>
+    <%= form.text_field :short_description, required: true, class: "mt-1 p-2 border border-gray-300 rounded-md w-full focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white" %>
   </div>
 
-  <div class="field">
-    <%= form.label :content, t('views.posts.form.content') %>
-    <%= form.text_area :content, rows: 10, data: { controller: "tinymce" } %>
+  <div class="mb-4">
+    <%= form.label :content, t('views.posts.form.content'), class: "block text-gray-700 dark:text-gray-300 font-medium" %>
+    <%= form.text_area :content, rows: 10, data: { controller: "tinymce" }, class: "mt-1 p-2 border border-gray-300 rounded-md w-full focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white" %>
   </div>
 
-  <div class="field">
-    <%= form.label :publish_date, t('views.posts.form.publish_date') %>
-    <%= form.date_field :publish_date, value: Date.today %>
+  <div class="mb-4">
+    <%= form.label :publish_date, t('views.posts.form.publish_date'), class: "block text-gray-700 dark:text-gray-300 font-medium" %>
+    <%= form.date_field :publish_date, value: Date.today, class: "mt-1 p-2 border border-gray-300 rounded-md w-full focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white" %>
   </div>
 
-  <div class="field">
-    <%= form.label :public, t('views.posts.form.public') %>
-    <%= form.check_box :public %>
+  <div class="mb-4">
+    <%= form.label :public, t('views.posts.form.public'), class: "block text-gray-700 dark:text-gray-300 font-medium" %>
+    <%= form.check_box :public, class: "mt-1 p-2" %>
   </div>
 
-  <div class="field">
-    <%= form.label :published, t('views.posts.form.published') %>
-    <%= form.check_box :published %>
+  <div class="mb-4">
+    <%= form.label :published, t('views.posts.form.published'), class: "block text-gray-700 dark:text-gray-300 font-medium" %>
+    <%= form.check_box :published, class: "mt-1 p-2" %>
   </div>
 
-  <div class="field">
-    <%= form.label :image, t('views.posts.form.image') %>
-    <%= form.file_field :image %>
+  <div class="mb-4">
+    <%= form.label :image, t('views.posts.form.image'), class: "block text-gray-700 dark:text-gray-300 font-medium" %>
+    <%= form.file_field :image, class: "mt-1 p-2 border border-gray-300 rounded-md w-full focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white" %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="mb-6">
+    <%= form.submit t('views.posts.form.create'), class: "w-full p-3 bg-blue-500 hover:bg-blue-700 text-white font-semibold rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-blue-600 dark:hover:bg-blue-800" %>
   </div>
 <% end %>

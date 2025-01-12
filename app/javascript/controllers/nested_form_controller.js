@@ -5,14 +5,16 @@ export default class extends Controller {
 
   add(event) {
     event.preventDefault();
+    console.log("Add button clicked!");
 
-    // Check if the template exists
-    const template = this.templateTarget ? this.templateTarget.innerHTML.replace(/NEW_RECORD/g, new Date().getTime()) : null;
+    const template = this.templateTarget
+      ? this.templateTarget.innerHTML.replace(/NEW_RECORD/g, new Date().getTime())
+      : null;
 
     if (template) {
       this.containerTarget.insertAdjacentHTML("beforeend", template);
     } else {
-      console.error('Template not found');
+      console.error("Template not found");
     }
   }
 

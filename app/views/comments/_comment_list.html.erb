@@ -1,9 +1,14 @@
 <% comments.each do |comment| %>
-  <div class="comment" id="comment-<%= comment.id %>">
-    <p><strong><%= comment.user.name %>:</strong> <%= comment.content %></p>
+  <div class="comment bg-gray-100 dark:bg-gray-800 p-4 mb-4 rounded-lg shadow-md border-t-4 border-gray-300 dark:border-gray-700">
+    <p class="font-semibold text-lg text-gray-800 dark:text-gray-200">
+      <%= comment.user.name %>:
+    </p>
+    <p class="text-gray-700 dark:text-gray-300">
+      <%= comment.content %>
+    </p>
     <% if comment.user == current_user %>
       <button 
-        class="delete-comment" 
+        class="delete-comment mt-2 px-4 py-2 bg-red-500 hover:bg-red-600 text-white font-semibold rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-red-600"
         data-comment-id="<%= comment.id %>" 
         data-post-id="<%= comment.post_id %>"
       >

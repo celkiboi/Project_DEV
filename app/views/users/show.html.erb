@@ -1,32 +1,49 @@
-<h1><%= t('views.users.show.profile') %></h1>
+<h1 class="text-3xl font-semibold text-gray-900 dark:text-white mb-6 text-center"><%= t('views.users.show.profile') %></h1>
 
-<% if @user.has_profile_picture? %>
-  <%= image_tag @user.profile_picture.url(:small) %>
-<% end %>
-
-<% if @is_current_user %>
-  <p><%= t('views.users.show.followers') %>: <%= @followers_count %>, <%= t('views.users.show.following') %>: <%= @following_count %></p>
-  <%= link_to t('views.users.show.show-followers'), user_connections_path(@user) %>
-<% else %>
-  <% if current_user.following?(@user) %>
-    <%= button_to t('views.users.show.unfollow'), unfollow_user_path(@user), method: :delete %>
-  <% else %>
-    <%= button_to t('views.users.show.follow'), follow_user_path(@user), method: :post %>
-  <% end %>
-<% end %>
-
-
-<p><strong><%= t('views.users.show.name') %>:</strong> <%= @user.name %></p>
-<p><strong><%= t('views.users.show.lastname') %>:</strong> <%= @user.lastname %></p>
-<p><strong><%= t('views.users.show.email') %>:</strong> <%= @user.email %></p>
-
-<% if @user.contact_emails.any? %>
-  <h3><%= t('views.users.show.contact_emails') %>:</h3>
-  <ul>
-    <% @user.contact_emails.each do |contact_email| %>
-      <li><%= contact_email.email %></li>
+<div class="max-w-3xl mx-auto px-4">
+  <div class="flex flex-col items-center mb-8">
+    <% if @user.has_profile_picture? %>
+      <%= image_tag @user.profile_picture.url(:small), class: "rounded-full border-4 border-gray-300 dark:border-gray-700 shadow-md mb-4 w-32 h-32 object-cover" %>
     <% end %>
-  </ul>
-<% else %>
-  <p><%= t('views.users.show.no_contact_emails') %></p>
-<% end %>
+
+    <p class="text-gray-700 dark:text-gray-300 mb-2">
+      <%= t('views.users.show.followers') %>: <span class="font-semibold"><%= @followers_count %></span>, 
+      <%= t('views.users.show.following') %>: <span class="font-semibold"><%= @following_count %></span>
+    </p>
+    
+    <%= link_to t('views.users.show.show-followers'), user_connections_path(@user), class: "text-blue-500 hover:text-blue-700 dark:text-blue-300 dark:hover:text-blue-500 mb-4" %>
+
+    <% unless @is_current_user %>
+      <div>
+        <% if current_user.following?(@user) %>
+          <%= button_to t('views.users.show.unfollow'), unfollow_user_path(@user), method: :delete, class: "bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600 focus:outline-none" %>
+        <% else %>
+          <%= button_to t('views.users.show.follow'), follow_user_path(@user), method: :post, class: "bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600 focus:outline-none" %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="space-y-4">
+    <p class="text-lg text-gray-900 dark:text-white">
+      <strong><%= t('views.users.show.name') %>:</strong> <%= @user.name %>
+    </p>
+    <p class="text-lg text-gray-900 dark:text-white">
+      <strong><%= t('views.users.show.lastname') %>:</strong> <%= @user.lastname %>
+    </p>
+    <p class="text-lg text-gray-900 dark:text-white mb-4">
+      <strong><%= t('views.users.show.email') %>:</strong> <%= @user.email %>
+    </p>
+
+    <% if @user.contact_emails.any? %>
+      <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4"><%= t('views.users.show.contact_emails') %>:</h3>
+      <ul class="list-disc pl-6 text-gray-700 dark:text-gray-300">
+        <% @user.contact_emails.each do |contact_email| %>
+          <li><%= contact_email.email %></li>
+        <% end %>
+      </ul>
+    <% else %>
+      <p class="text-lg text-gray-600 dark:text-gray-400"><%= t('views.users.show.no_contact_emails') %></p>
+    <% end %>
+  </div>
+</div>
