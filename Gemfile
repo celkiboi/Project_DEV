@@ -3,7 +3,7 @@ source "https://rubygems.org"
 gem "tailwindcss-rails"
 gem 'devise'
 gem 'devise-i18n'
-gem 'carrierwave', '~> 3.0'
+gem 'carrierwave', '~> 3.1'
 gem 'mini_magick'
 gem 'active_storage_validations'
 gem 'kaminari'
