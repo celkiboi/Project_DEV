@@ -19,7 +19,7 @@
     <% if @following.any? %>
       <ul>
         <% @following.each do |followed| %>
-          <li><%= link_to followed.name, user_profile_path(followed) %></li>
+          <li><%= link_to followed.name, user_path(followed) %></li>
         <% end %>
       </ul>
     <% else %>

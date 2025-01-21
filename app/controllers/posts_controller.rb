@@ -19,7 +19,7 @@ class PostsController < ApplicationController
   def create
     @post = current_user.posts.new(post_params)
     if @post.save
-      redirect_to user_posts_path(current_user)
+      redirect_to posts_user_path(current_user)
     else
       flash.now[:alert] =  t("activerecord.errors.messages.record_invalid")
       render :new, status: :unprocessable_entity
@@ -34,10 +34,10 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
 
     if @post.user == current_user
-      @post.publish 
-      redirect_to user_posts_path(current_user), notice: t('views.posts.user_posts.publish_success')
+      @post.publish
+      redirect_to posts_user_path(current_user), notice: t('views.posts.user_posts.publish_success')
     else
-      redirect_to user_posts_path(current_user), alert: t('views.posts.user_posts.not_author')
+      redirect_to posts_user_path(current_user), alert: t('views.posts.user_posts.not_author')
     end
   end
 

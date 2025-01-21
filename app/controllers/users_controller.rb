@@ -24,13 +24,13 @@ class UsersController < ApplicationController
       flash[:alert] = t('views.users.show.already_following')
     end
   
-    redirect_to user_profile_path(@user)
+    redirect_to user_path(@user)
   end  
 
   def unfollow
     @user = User.find(params[:id])
     current_user.following_relationships.find_by(followee: @user).destroy
-    redirect_to user_profile_path(@user)
+    redirect_to user_path(@user)
   end
 
   def connections

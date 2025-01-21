@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
           return;
         }
   
-        fetch(`/posts/${postId}/comments`, {
+        fetch(`/objave/${postId}/komentari/`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const commentId = event.target.getAttribute('data-comment-id');
         const postId = event.target.getAttribute('data-post-id');
   
-        fetch(`/posts/${postId}/comments/${commentId}`, {
+        fetch(`/objave/${postId}/komentari/${commentId}`, {
           method: 'DELETE',
           headers: {
             'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
