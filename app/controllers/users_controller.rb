@@ -1,10 +1,6 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
 
-  def user_params
-    params.require(:user).permit(:email, :password, :password_confirmation, :current_password, :profile_picture, contact_emails_attributes: [:id, :email, :_destroy])
-  end
-
   def show
     @user = User.find(params[:id])
     @is_current_user = @user == current_user
@@ -14,7 +10,7 @@ class UsersController < ApplicationController
 
   def follow
     @user = User.find(params[:id])
-    
+
     if @user == current_user
       flash[:alert] = t('views.users.show.cannot_follow_yourself')
     elsif !current_user.following?(@user)
@@ -23,9 +19,8 @@ class UsersController < ApplicationController
     else
       flash[:alert] = t('views.users.show.already_following')
     end
-  
     redirect_to user_path(@user)
-  end  
+  end
 
   def unfollow
     @user = User.find(params[:id])
@@ -37,5 +32,11 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @followers = @user.followers
     @following = @user.followees
+  end
+
+  private
+
+  def user_params
+    params.require(:user).permit(:email, :password, :password_confirmation, :current_password, :profile_picture, contact_emails_attributes: [:id, :email, :_destroy])
   end
 end
