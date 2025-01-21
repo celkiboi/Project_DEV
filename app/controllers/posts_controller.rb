@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :set_user, only: [:user_posts]
+  before_action :set_user, only: [ :user_posts ]
   before_action :authenticate_user!
 
   def user_posts
@@ -10,19 +10,19 @@ class PostsController < ApplicationController
     else
       @posts = @user.posts.public_posts.order(publish_date: :desc).page(params[:page]).per(5)
     end
-  end  
+  end
 
   def new
     @post = current_user.posts.build
   end
-  
+
   def create
     @post = current_user.posts.new(post_params)
     if @post.save
-      redirect_to user_posts_path(current_user), notice: t('views.posts.user_posts.create_success')
+      redirect_to user_posts_path(current_user)
     else
-      flash.now[:alert] = t('views.posts.user_posts.create_failure')
-      render :new
+      flash.now[:alert] =  t("activerecord.errors.messages.record_invalid")
+      render :new, status: :unprocessable_entity
     end
   end
 

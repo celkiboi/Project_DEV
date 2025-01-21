@@ -1,7 +1,7 @@
 <%= form_with(model: @post, local: true, html: { multipart: true }) do |form| %>
   <% if @post.errors.any? %>
     <div id="error_explanation" class="bg-red-100 text-red-800 p-4 rounded-md mb-6">
-      <h2 class="font-semibold"><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+      <h2 class="font-semibold"><%= pluralize(@post.errors.count, "error") %></h2>
 
       <ul class="list-inside list-disc mt-2">
         <% @post.errors.full_messages.each do |message| %>
