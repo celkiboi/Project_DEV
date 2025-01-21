@@ -2,9 +2,7 @@ class Post < ApplicationRecord
   belongs_to :user
   has_many :comments, dependent: :destroy
 
-  attribute :publish_date, :date
-
-  before_validation :set_default_publish_date
+  attribute :publish_date, default: Date.current
 
   validates :title, presence: true
   validates :short_description, presence: true
@@ -27,11 +25,4 @@ class Post < ApplicationRecord
   def publish
     update(published: true)
   end
-
-  private
-
-  def set_default_publish_date
-    self.publish_date ||= Date.today
-  end
 end
-
