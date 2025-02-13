@@ -37,6 +37,7 @@ hr:
         login: "Prijava"
         new-post: "Nova objava"
         profile: "Profil"
+        notifications: "Obavijesti"
     users:
       connections:
         followers: "Pratitelji"
@@ -56,6 +57,15 @@ hr:
         cannot_follow_yourself: "Ne možete pratiti samoga sebe!"
         no_contact_emails: "Korisnik nema e-mail adrese na koje ga možete kontaktirati."
         contact_emails: "E-mail adrese na koje možete kontaktirati korisnika"
+    notifications:
+      index:
+        notifications: "Obavijesti"
+        back-to-home: "Natrag na početnu"
+        read: "Pročitano"
+        unread: "Nepročitano"
+        mark-as-read: "Označi kao pročitano"
+        new-comment: "Novi komentar"
+        new-follow: "Novi pratitelj"
     posts:
       user_posts:
         suffix: "-ove"

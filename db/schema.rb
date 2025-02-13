@@ -47,7 +47,7 @@ ActiveRecord::Schema[7.2].define(version: 2025_02_13_115942) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id", null: false
-    t.boolean "markedAsRead", default: false
+    t.boolean "marked_as_read", default: false
     t.index ["notifiable_type", "notifiable_id"], name: "index_notifications_on_notifiable"
     t.index ["user_id"], name: "index_notifications_on_user_id"
   end

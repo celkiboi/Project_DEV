@@ -26,4 +26,6 @@ Rails.application.routes.draw do
     end
     resources :comments, path: "komentari", only: [ :create, :destroy ]
   end
+
+  resources :notifications, path: "obavijesti", only: [ :index, :show ]
 end
