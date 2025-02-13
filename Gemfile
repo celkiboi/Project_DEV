@@ -1,12 +1,12 @@
 source "https://rubygems.org"
 
 gem "tailwindcss-rails"
-gem 'devise'
-gem 'devise-i18n'
-gem 'carrierwave', '~> 3.0'
-gem 'mini_magick'
-gem 'active_storage_validations'
-gem 'kaminari'
+gem "devise"
+gem "devise-i18n"
+gem "carrierwave", "~> 3.0"
+gem "mini_magick"
+gem "active_storage_validations"
+gem "kaminari"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.2.1", ">= 7.2.1.1"
@@ -51,6 +51,8 @@ group :development, :test do
 
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
+
+  gem "letter_opener"
 end
 
 group :development do

@@ -1,0 +1,14 @@
+<p>Pozdrav <%= @notification.user.name %>,</p>
+
+<p>Korisnik <strong><%= @comment.user.name %></strong> je komentirao vašu objavu "<strong><%= @post.title %></strong>":</p>
+
+<blockquote><%= @comment.content %></blockquote>
+
+<p>
+  <a href="<%= post_url(@post, anchor: "comment-#{@comment.id}") %>">
+    Otvori
+  </a>
+</p>
+
+<p>Srdačan pozdrav,</p>
+<p>Vaš tim</p>

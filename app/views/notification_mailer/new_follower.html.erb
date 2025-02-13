@@ -1,0 +1,12 @@
+<p>Pozdrav <%= @notification.user.name %>,</p>
+
+<p>Korisnik <strong><%= @follower.name %></strong> vas je počeo pratiti.</p>
+
+<p>
+  <a href="<%= user_url(@follower) %>">
+    Otvori
+  </a>
+</p>
+
+<p>Srdačan pozdrav,</p>
+<p>Vaš tim</p>
