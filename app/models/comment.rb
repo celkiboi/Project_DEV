@@ -11,10 +11,6 @@ class Comment < ApplicationRecord
   def notify_post_owner
     return if post.user == user
 
-    Notification.create!(
-      user: post.user,
-      notifiable: self,
-      marked_as_read: false
-    )
+    NotificationJob.perform_later(post.user, self)
   end
 end

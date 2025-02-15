@@ -9,10 +9,6 @@ class Follow < ApplicationRecord
   private
 
   def notify_followee
-    Notification.create!(
-      user: followee,
-      notifiable: self,
-      marked_as_read: false
-    )
+    NotificationJob.perform_later(followee, self)
   end
 end
