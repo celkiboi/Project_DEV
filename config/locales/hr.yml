@@ -23,12 +23,45 @@ hr:
       messages:
         blank: "Ne smije biti prazno"
   views:
+    admin:
+      dashboard:
+        title: "Admin nadzorna ploča"
+      administrators:
+        title: "Administratori"
+        email: "Email"
+        name: "Ime"
+        lastname: "Prezime"
+      users:
+        title: "Korisnici"
+        email: "Email"
+        name: "Ime"
+        profile: "Profil"
+        posts: "Objave"
+        view_profile: "Pogledaj profil"
+        view_posts: "Pogledaj objave"
+      posts:
+        title: "Objave"
+        title_column: "Naslov"
+        author: "Autor"
+        published: "Objavljeno"
+        publish_date: "Datum objave"
+        actions: "Radnje"
+        yes: "Da"
+        no: "Ne"
+        view: "Pogledaj"
     pagination:
       first: "Prva"
       last: "Zadnja"
       previous: "Prethodna"
       next: "Sljedeća"
       truncate: "..."
+    layouts:
+      admin:
+        administrators: "Administratori"
+        users: "Korisnici"
+        posts: "Objave"
+        logout: "Odjava"
+        title: "Admin nadzorna ploča"
     shared:
       nav:
         home: "Naslovnica"
@@ -99,5 +132,8 @@ hr:
         comment: "Komentiraj"
         comments: "Komentari"
         add_comment: "Dodaj komentar..."
+        user_name: "Korisničko ime"
+        user_email: "Korisnički email"
+        posted_by: "Objavio"
     comments:
       delete: "Obriši"

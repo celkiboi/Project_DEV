@@ -1,0 +1,26 @@
+<h1 class="text-3xl font-bold text-gray-900 dark:text-white mb-4"><%= t('views.admin.administrators.title') %></h1>
+
+<div class="overflow-x-auto bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
+  <table class="min-w-full table-auto">
+    <thead>
+      <tr>
+        <th class="px-4 py-2 text-left text-gray-700 dark:text-gray-300 font-semibold"><%= t('views.admin.administrators.email') %></th>
+        <th class="px-4 py-2 text-left text-gray-700 dark:text-gray-300 font-semibold"><%= t('views.admin.administrators.name') %></th>
+        <th class="px-4 py-2 text-left text-gray-700 dark:text-gray-300 font-semibold"><%= t('views.admin.administrators.lastname') %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @admins.each do |admin| %>
+        <tr class="border-t border-gray-300 dark:border-gray-700">
+          <td class="px-4 py-2 text-gray-700 dark:text-gray-300"><%= admin.email %></td>
+          <td class="px-4 py-2 text-gray-700 dark:text-gray-300"><%= admin.name %></td>
+          <td class="px-4 py-2 text-gray-700 dark:text-gray-300"><%= admin.lastname %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <div class="mt-4">
+    <%= paginate @admins %>
+  </div>
+</div>

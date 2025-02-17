@@ -1,0 +1,32 @@
+<h1 class="text-3xl font-bold text-gray-900 dark:text-white mb-4"><%= t('views.admin.posts.title') %></h1>
+
+<div class="overflow-x-auto bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
+  <table class="min-w-full table-auto">
+    <thead>
+      <tr>
+        <th class="px-4 py-2 text-left text-gray-700 dark:text-gray-300 font-semibold"><%= t('views.admin.posts.title_column') %></th>
+        <th class="px-4 py-2 text-left text-gray-700 dark:text-gray-300 font-semibold"><%= t('views.admin.posts.author') %></th>
+        <th class="px-4 py-2 text-left text-gray-700 dark:text-gray-300 font-semibold"><%= t('views.admin.posts.published') %></th>
+        <th class="px-4 py-2 text-left text-gray-700 dark:text-gray-300 font-semibold"><%= t('views.admin.posts.publish_date') %></th>
+        <th class="px-4 py-2 text-left text-gray-700 dark:text-gray-300 font-semibold"><%= t('views.admin.posts.actions') %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @posts.each do |post| %>
+        <tr class="border-t border-gray-300 dark:border-gray-700">
+          <td class="px-4 py-2 text-gray-700 dark:text-gray-300"><%= post.title %></td>
+          <td class="px-4 py-2 text-gray-700 dark:text-gray-300"><%= post.user.name %></td>
+          <td class="px-4 py-2 text-gray-700 dark:text-gray-300"><%= post.published? ? t('views.admin.posts.yes') : t('views.admin.posts.no') %></td>
+          <td class="px-4 py-2 text-gray-700 dark:text-gray-300"><%= l(post.publish_date, format: :long) %></td>
+          <td class="px-4 py-2">
+            <%= link_to t('views.admin.posts.view'), admin_post_path(post), class: "text-blue-500 hover:text-blue-700 dark:text-blue-300 dark:hover:text-blue-500" %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <div class="mt-4">
+    <%= paginate @posts %>
+  </div>
+</div>

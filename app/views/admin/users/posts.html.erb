@@ -1,0 +1,26 @@
+<h1 class="text-2xl font-bold mb-6 text-gray-800 dark:text-white">
+  <%= @user.name %><%= t('views.posts.user_posts.suffix') %> <%= t('views.posts.user_posts.posts') %>
+</h1>
+
+<% if @posts.any? %>
+  <ul class="space-y-6">
+    <% @posts.each do |post| %>
+      <li class="border-b border-gray-300 pb-6 hover:bg-gray-50 dark:border-gray-700 dark:hover:bg-gray-800 transition-colors">
+        <h2 class="text-xl font-semibold">
+          <%= link_to post.title, admin_post_path(post), class: 'text-blue-500 hover:underline dark:text-blue-300 dark:hover:underline' %>
+        </h2>
+        <p class="text-gray-600 mt-2 dark:text-gray-300"><%= post.short_description %></p>
+        <p class="text-sm text-gray-500 mt-2 dark:text-gray-400"><%= post.publish_date.strftime('%d.%m.%Y') %></p>
+        <% if current_user == @user %>
+          <p class="text-sm text-blue-500 mt-2 dark:text-blue-400">
+            <em><%= post.published? ? t('views.posts.user_posts.published') : t('views.posts.user_posts.unpublished') %></em>
+          </p>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+
+  <%= paginate @posts, class: 'flex justify-center mt-8' %>
+<% else %>
+  <p class="text-lg text-gray-500 dark:text-gray-400"><%= t('views.posts.user_posts.no-posts') %></p>
+<% end %>

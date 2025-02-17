@@ -1,0 +1,38 @@
+<h1 class="text-3xl font-semibold text-gray-900 dark:text-white mb-6 text-center"><%= t('views.users.show.profile') %></h1>
+
+<div class="max-w-3xl mx-auto px-4">
+  <div class="flex flex-col items-center mb-8">
+    <% if @user.has_profile_picture? %>
+      <%= image_tag @user.profile_picture.url(:small), class: "rounded-full border-4 border-gray-300 dark:border-gray-700 shadow-md mb-4 w-32 h-32 object-cover" %>
+    <% end %>
+
+    <p class="text-gray-700 dark:text-gray-300 mb-2">
+      <%= t('views.users.show.followers') %>: <span class="font-semibold"><%= @followers_count %></span>, 
+      <%= t('views.users.show.following') %>: <span class="font-semibold"><%= @following_count %></span>
+    </p>
+    
+  </div>
+
+  <div class="space-y-4">
+    <p class="text-lg text-gray-900 dark:text-white">
+      <strong><%= t('views.users.show.name') %>:</strong> <%= @user.name %>
+    </p>
+    <p class="text-lg text-gray-900 dark:text-white">
+      <strong><%= t('views.users.show.lastname') %>:</strong> <%= @user.lastname %>
+    </p>
+    <p class="text-lg text-gray-900 dark:text-white mb-4">
+      <strong><%= t('views.users.show.email') %>:</strong> <%= @user.email %>
+    </p>
+
+    <% if @user.contact_emails.any? %>
+      <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4"><%= t('views.users.show.contact_emails') %>:</h3>
+      <ul class="list-disc pl-6 text-gray-700 dark:text-gray-300">
+        <% @user.contact_emails.each do |contact_email| %>
+          <li><%= contact_email.email %></li>
+        <% end %>
+      </ul>
+    <% else %>
+      <p class="text-lg text-gray-600 dark:text-gray-400"><%= t('views.users.show.no_contact_emails') %></p>
+    <% end %>
+  </div>
+</div>

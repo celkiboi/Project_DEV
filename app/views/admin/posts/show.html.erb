@@ -1,0 +1,31 @@
+<div class="bg-gray-100 dark:bg-gray-800 p-4 rounded-md shadow-md mb-4">
+  <h2 class="text-xl font-semibold text-gray-900 dark:text-white"><%= t('views.posts.show.posted_by') %></h2>
+  <p class="text-gray-700 dark:text-gray-300">
+    <strong><%= t('views.posts.show.user_name') %>:</strong> <%= @post.user.name %> <br>
+    <strong><%= t('views.posts.show.user_email') %>:</strong> <%= @post.user.email %>
+  </p>
+</div>
+
+<h1 class="text-3xl font-bold text-gray-900 dark:text-white mb-4"><%= @post.title %></h1>
+
+<p class="text-gray-700 dark:text-gray-300 mb-4">
+  <strong><%= t('views.posts.show.short_description') %>:</strong> <%= @post.short_description %>
+</p>
+<p class="text-gray-700 dark:text-gray-300 mb-4">
+  <strong><%= t('views.posts.show.content') %>:</strong> <%= raw @post.content %>
+</p>
+<p class="text-gray-700 dark:text-gray-300 mb-4">
+  <strong><%= t('views.posts.show.publish_date') %>:</strong> <%= @post.publish_date.strftime('%d.%m.%Y') %>
+</p>
+
+<% if @post.image.present? %>
+  <div class="mb-6">
+    <%= image_tag @post.image.url, class: "w-64 h-auto rounded-md shadow-lg mx-auto" %>
+  </div>
+<% end %>
+
+<h2 class="text-2xl font-semibold text-gray-900 dark:text-white mt-8 mb-4"><%= t('views.posts.show.comments') %></h2>
+
+<div id="comments" class="mb-6">
+  <%= render partial: 'comments/comment_list', locals: { comments: @post.comments } %>
+</div>
