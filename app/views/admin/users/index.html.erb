@@ -19,7 +19,7 @@
             <%= link_to t('views.admin.users.view_profile'), admin_user_path(user), class: "text-blue-500 hover:text-blue-700 dark:text-blue-300 dark:hover:text-blue-500" %>
           </td>
           <td class="px-4 py-2">
-            <%= link_to t('views.admin.users.view_posts'), admin_user_posts_path(user), class: "text-blue-500 hover:text-blue-700 dark:text-blue-300 dark:hover:text-blue-500" %>
+            <%= link_to t('views.admin.users.view_posts'), posts_admin_user_path(user), class: "text-blue-500 hover:text-blue-700 dark:text-blue-300 dark:hover:text-blue-500" %>
           </td>
         </tr>
       <% end %>

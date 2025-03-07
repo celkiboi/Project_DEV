@@ -40,20 +40,17 @@ Rails.application.routes.draw do
   resources :notifications, path: "obavijesti", only: [ :index, :show ]
 
   namespace :admin, path: "admin" do
-    get "objave", to: "posts#index", as: :posts_index
-    get "objave/:id", to: "posts#show", as: :post
-    get "korisnici", to: "users#index", as: :users_index
-    get "korisnici/:id", to: "users#show", as: :user
     get "korisnici/:id/objave", to: "users#posts", as: :user_posts
-    get "administratori", to: "admins#index", as: :admins_index
     root to: "dashboard#index"
 
     resources :admins, path: "administratori", only: [ :index ]
+
     resources :users, path: "korisnici", only: [ :index, :show ] do
       member do
-        get "objave", to: "users#posts"
+        get "objave", to: "users#posts", as: :posts
       end
     end
+
     resources :posts, path: "objave", only: [ :index, :show ]
   end
 end
