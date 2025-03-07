@@ -1,14 +1,14 @@
-<p>Pozdrav <%= @notification.user.name %>,</p>
+<p><%= t('mailer.greetings', name: @notification.user.name) %></p>
 
-<p>Korisnik <strong><%= @comment.user.name %></strong> je komentirao vašu objavu "<strong><%= @post.title %></strong>":</p>
+<p><%= t('mailer.comment.commented_by', commenter: @comment.user.name, post_title: @post.title) %></p>
 
 <blockquote><%= @comment.content %></blockquote>
 
 <p>
   <a href="<%= post_url(@post, anchor: "comment-#{@comment.id}") %>">
-    Otvori
+    <%= t('mailer.comment.open') %>
   </a>
 </p>
 
-<p>Srdačan pozdrav,</p>
-<p>Vaš tim</p>
+<p><%= t('comment.regards') %></p>
+<p><%= t('comment.team') %></p>

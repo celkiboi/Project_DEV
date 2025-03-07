@@ -1,4 +1,15 @@
 hr:
+  mailer:
+    greetings: "Pozdrav"
+    comment:
+      new_comment_on: "Novi komentar na %{comment_on}"
+      commented_by: "Korisnik %{commenter} je komentirao vašu objavu \"%{post_title}\":"
+      open: "Otvori"
+      regards: "Srdačan pozdrav,"
+      team: "Vaš tim"
+    follow:
+      new_follower: "Novi pratitelj"
+      followed_by: "Korisnik %{follower} vas je počeo pratiti."
   devise:
     registrations:
       new:

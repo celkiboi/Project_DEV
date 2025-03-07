@@ -1,5 +1,5 @@
 class NotificationMailer < ApplicationMailer
-  default from: "no-reply@example.com" # Change this to your sender email
+  default from: "no-reply@example.com"
 
   def new_comment(notification)
     @notification = notification
@@ -7,7 +7,7 @@ class NotificationMailer < ApplicationMailer
     @post = @comment.post
     mail(
       to: notification.user.email,
-      subject: "New comment on #{@post.title}"
+      subject: t("mailer.comment.new_comment_on", comment_on: @post.title)
     )
   end
 
@@ -16,7 +16,7 @@ class NotificationMailer < ApplicationMailer
     @follower = notification.notifiable.follower
     mail(
       to: notification.user.email,
-      subject: "New follower"
+      subject: t("mailer.follow.new_follower")
     )
   end
 end

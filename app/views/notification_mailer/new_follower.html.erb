@@ -1,12 +1,12 @@
-<p>Pozdrav <%= @notification.user.name %>,</p>
+<p><%= t('mailer.greetings', name: @notification.user.name) %></p>
 
-<p>Korisnik <strong><%= @follower.name %></strong> vas je počeo pratiti.</p>
+<p><%= t('mailer.follow.followed_by', follower: @follower.name) %></p>
 
 <p>
   <a href="<%= user_url(@follower) %>">
-    Otvori
+    <%= t('mailer.comment.open') %>
   </a>
 </p>
 
-<p>Srdačan pozdrav,</p>
-<p>Vaš tim</p>
+<p><%= t('mailer.comment.regards') %></p>
+<p><%= t('mailer.comment.team') %></p>
