@@ -1,5 +1,34 @@
 <h1 class="text-3xl font-bold text-gray-900 dark:text-white mb-4"><%= t('views.admin.posts.title') %></h1>
 
+<div class="bg-white dark:bg-gray-800 p-4 mb-6 rounded-lg shadow-md">
+  <%= form_with url: admin_posts_path, method: :get, local: true, class: "grid grid-cols-1 md:grid-cols-5 gap-4" do %>
+    <div>
+      <%= label_tag :search, t('views.admin.posts.search'), class: "block text-gray-700 dark:text-gray-300 mb-1" %>
+      <%= text_field_tag :search, params[:search], class: "w-full rounded border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white" %>
+    </div>
+
+    <div>
+      <%= label_tag :visibility, t('views.admin.posts.visibility'), class: "block text-gray-700 dark:text-gray-300 mb-1" %>
+      <%= select_tag :visibility, options_for_select([[t('views.admin.posts.all'), ""], [t('views.admin.posts.public'), "public"], [t('views.admin.posts.private'), "private"]], params[:visibility]), class: "w-full rounded border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white" %>
+    </div>
+
+    <div>
+      <%= label_tag :date_from, t('views.admin.posts.date_from'), class: "block text-gray-700 dark:text-gray-300 mb-1" %>
+      <%= date_field_tag :date_from, params[:date_from], class: "w-full rounded border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white" %>
+    </div>
+
+    <div>
+      <%= label_tag :date_to, t('views.admin.posts.date_to'), class: "block text-gray-700 dark:text-gray-300 mb-1" %>
+      <%= date_field_tag :date_to, params[:date_to], class: "w-full rounded border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white" %>
+    </div>
+
+    <div class="flex items-end">
+      <%= submit_tag t('views.admin.posts.filter'), class: "w-full bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 dark:bg-blue-700 dark:hover:bg-blue-800" %>
+    </div>
+  <% end %>
+</div>
+
+
 <div class="overflow-x-auto bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
   <table class="min-w-full table-auto">
     <thead>

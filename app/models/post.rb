@@ -2,6 +2,12 @@ class Post < ApplicationRecord
   belongs_to :user
   has_many :comments, dependent: :destroy
 
+  include PgSearch::Model
+
+  pg_search_scope :search_by_title_and_summary,
+    against: [ :title, :short_description ],
+    using: { tsearch: { prefix: true } }
+
   attribute :publish_date, default: Date.current
 
   validates :title, presence: true
