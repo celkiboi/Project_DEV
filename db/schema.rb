@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2025_03_20_113155) do
+ActiveRecord::Schema[7.2].define(version: 2025_03_21_201714) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -79,6 +79,15 @@ ActiveRecord::Schema[7.2].define(version: 2025_03_20_113155) do
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
+  create_table "settings", force: :cascade do |t|
+    t.integer "remind_after_quantity", null: false
+    t.string "remind_after_unit", null: false
+    t.text "reminder_email_text", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.check_constraint "remind_after_unit::text = ANY (ARRAY['days'::character varying, 'months'::character varying]::text[])", name: "remind_after_unit_check"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -93,6 +102,7 @@ ActiveRecord::Schema[7.2].define(version: 2025_03_20_113155) do
     t.string "profile_picture"
     t.datetime "last_seen_at"
     t.datetime "reminder_email_sent_at"
+    t.string "country"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

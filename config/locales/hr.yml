@@ -56,6 +56,8 @@ hr:
         posts: "Objave"
         view_profile: "Pogledaj profil"
         view_posts: "Pogledaj objave"
+        country: "Država"
+        no_info: "Nema informacija"
       posts:
         title: "Objave"
         title_column: "Naslov"

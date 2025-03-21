@@ -10,7 +10,7 @@ gem "kaminari"
 gem "pg_search"
 gem "sidekiq", "~> 6.5"
 gem "sidekiq-scheduler"
-
+gem "httparty"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.2.1", ">= 7.2.1.1"

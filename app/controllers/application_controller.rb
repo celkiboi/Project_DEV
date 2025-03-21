@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   before_action :set_devise_locale
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :update_last_seen_at, if: :user_signed_in?
+  before_action :set_user_country, if: :user_signed_in?
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [ :name, :lastname ])
@@ -18,5 +19,13 @@ class ApplicationController < ActionController::Base
 
     def update_last_seen_at
       current_user.update_column(:last_seen_at, Time.current)
+    end
+
+    def set_user_country
+      if current_user.country.blank?
+        ip = request.remote_ip
+        country = IpstackService.new(ip).fetch_country
+        current_user.update(country: country) if country.present?
+      end
     end
 end
