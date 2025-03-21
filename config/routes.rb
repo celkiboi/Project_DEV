@@ -52,5 +52,7 @@ Rails.application.routes.draw do
     end
 
     resources :posts, path: "objave", only: [ :index, :show ]
+
+    resource :settings, only: [ :edit, :update ], path: "postavke"
   end
 end

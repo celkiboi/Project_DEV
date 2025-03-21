@@ -35,6 +35,12 @@ hr:
         blank: "Ne smije biti prazno"
   views:
     admin:
+      settings:
+        edit_title: "Uredi postavke podsjetnika"
+        remind_after_quantity: "Količina vremena za podsjetnik"
+        remind_after_unit: "Jedinica vremena"
+        reminder_email_text: "Tekst podsjetnika"
+        save_settings: "Spremi postavke"
       dashboard:
         title: "Admin nadzorna ploča"
       administrators:
@@ -81,6 +87,7 @@ hr:
         posts: "Objave"
         logout: "Odjava"
         title: "Admin nadzorna ploča"
+        notification_settings: "Postavke mail obavijesti"
     shared:
       nav:
         home: "Naslovnica"

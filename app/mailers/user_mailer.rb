@@ -1,11 +1,11 @@
 class UserMailer < ApplicationMailer
-  default from: "no-reply@example.com"
-
-  def inactivity_reminder(user)
+  def inactivity_reminder(user, custom_text)
     @user = user
-    mail(
-      to: @user.email,
-      subject: "We miss you at OurPlatform!"
-    )
+    @custom_text = custom_text
+
+    mail(to: @user.email, subject: "We miss you!") do |format|
+      format.text { render plain: @custom_text }
+      format.html { render html: "<p>#{@custom_text}</p>".html_safe }
+    end
   end
 end
